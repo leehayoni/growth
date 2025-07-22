@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 export default function RocketGrowthSection() {
   const sectionRef = useRef(null);
   const [hoveredStage, setHoveredStage] = useState<number | null>(null);
-  const [isCurrentHovered, setIsCurrentHovered] = useState(false);
+  const [isCurrentCardVisible, setIsCurrentCardVisible] = useState(true);
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -421,16 +421,15 @@ export default function RocketGrowthSection() {
 
           {/* Frame: Enhanced Final Achievement */}
           <AnimatePresence>
-          {!isCurrentHovered && (
+          {isCurrentCardVisible && (
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 50 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 1, delay: 2.5 }}
               viewport={{ once: true }}
-              className="absolute top-8 right-8 z-20"
-              onHoverStart={() => setIsCurrentHovered(true)}
-              onHoverEnd={() => setIsCurrentHovered(false)}
+              className="absolute top-8 right-8 z-20 cursor-pointer"
+              onTap={() => setIsCurrentCardVisible(false)}
             >
               <motion.div
                 className="bg-gradient-to-br from-white via-yellow-50 to-purple-50 p-8 rounded-3xl shadow-2xl border-2 border-custom-yellow max-w-sm relative overflow-hidden"
