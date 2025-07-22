@@ -13,7 +13,6 @@ export default function RocketGrowthSection() {
 
   const rocketY = useTransform(scrollYProgress, [0, 1], ['100%', '-10%']);
   const rocketRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
-  const pathProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const stages = [
     {
@@ -463,7 +462,7 @@ export default function RocketGrowthSection() {
                     시스템과 제품을 설계하는 디자이너로서 기술과 디자인의 경계를 넘나들며 혁신을 만들어가고 있습니다.
                   </p>
                   
-                  
+                  <div className="mt-4 flex justify-center">
                     <div className="px-4 py-2 bg-gradient-to-r from-custom-yellow to-yellow-400 text-custom-black text-xs font-pretendard-bold rounded-full">
                       계속 성장 중...
                     </div>
